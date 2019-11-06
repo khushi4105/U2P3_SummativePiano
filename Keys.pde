@@ -5,11 +5,11 @@ class Keys
   char _colour;
   float _velocity;
 
-  Keys(char note)
+  Keys(char note, int i)
   {
     _velocity = 2.5;
     _colour = note;
-    _x = random(1, 700);
+    _x = i*150;
     _y = random(-500, 0);
   }
 
@@ -66,6 +66,11 @@ class Keys
       fill(255);
       textSize(20);
       text("G", _x+20, _y+50);
+    }
+    
+    if(_y > 700)
+    {
+     _y = -80; 
     }
   }
 }

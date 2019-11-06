@@ -1,10 +1,8 @@
-/* THINGS LEFT:
-1. get if statement for when y goes completely down
-2.attach minim sounds to each key
-3. attack makey makey to hard made piano
-*/
+import ddf.minim.*;
+Minim minim;
+AudioPlayer[] notes = new AudioPlayer[4];
 
-Keys rectangle[] = new Keys[5];
+Keys rectangle[] = new Keys[6];
 
 void setup()
 {
@@ -12,9 +10,7 @@ void setup()
   background(0, 0, 0);
   textAlign(CENTER);
 
-  
-
-  for (int i=0; i<5; i++)
+  for (int i=0; i<6; i++)
   {
     int drop = (int)random(1, 5);
     char noteChoice='C';
@@ -38,9 +34,15 @@ void setup()
     {
       noteChoice = 'G';
     }
-    
-    rectangle[i] = new Keys(noteChoice);
+
+    rectangle[i] = new Keys(noteChoice, i);
   }
+
+  minim = new Minim(this);
+  notes[0] = minim.loadFile("cChord.wav");
+  notes[1] = minim.loadFile("dChord.wav");
+  notes[2] = minim.loadFile("eChord.wav");
+  notes[3] = minim.loadFile("gChord.wav");
 }
 
 
@@ -48,8 +50,29 @@ void draw()
 {
   background(0, 0, 0);
 
-  for (int i=0; i<5; i++)
+  for (int i=0; i<6; i++)
   {
     rectangle[i].draw();
   }
+}
+
+
+void keyReleased()
+{
+    if (keyCode == LEFT)
+    {
+      notes[0].play();
+    }
+    if (keyCode == UP)
+    {
+      notes[1].play();
+    }
+    if (keyCode == DOWN)
+    {
+      notes[2].play();
+    }
+    if (keyCode == RIGHT)
+    {
+      notes[3].play();
+    }
 }
