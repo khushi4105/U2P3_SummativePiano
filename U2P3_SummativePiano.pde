@@ -1,3 +1,9 @@
+/*
+1. Write code for music to stop once played
+2. attach Makey Makey to piano
+VOILAAA
+*/
+
 import ddf.minim.*;
 Minim minim;
 AudioPlayer[] notes = new AudioPlayer[4];
