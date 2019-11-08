@@ -1,4 +1,4 @@
-class Keys
+ class Keys
 {
   float _x;
   float _y;

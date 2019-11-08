@@ -1,8 +1,3 @@
-/*
-1. Write code for music to stop once played
-2. attach Makey Makey to piano
-VOILAAA
-*/
 
 import ddf.minim.*;
 Minim minim;
@@ -67,18 +62,22 @@ void keyReleased()
 {
     if (keyCode == LEFT)
     {
+      notes[0].rewind();
       notes[0].play();
     }
     if (keyCode == UP)
     {
+      notes[1].rewind();
       notes[1].play();
     }
     if (keyCode == DOWN)
     {
+      notes[2].rewind();
       notes[2].play();
     }
     if (keyCode == RIGHT)
     {
+      notes[3].rewind();
       notes[3].play();
     }
 }
